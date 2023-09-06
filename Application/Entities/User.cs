@@ -1,8 +1,8 @@
-﻿namespace Area51.Entities
+﻿namespace UnitTestExample.Entities
 {
-    public class Person
+    public class User
     {
-        public Person(int id, string name, int age, IList<Address> addresses)
+        public User(Guid id, string name, int age, IList<Address> addresses)
         {
             Id = id;
             Name = name;
@@ -10,7 +10,7 @@
             Addresses = addresses;
         }
 
-        public int Id { get; private set; }
+        public Guid Id { get; private set; }
         public string Name { get; private set; }
         public int Age { get; private set; }
         public IList<Address> Addresses { get; private set; }
@@ -29,6 +29,14 @@
                 throw new ArgumentException("Idade deve ser maior que 18 anos");
 
             Age = age;
+        }
+
+        public void AddAddress(Address address)
+        {
+            if(!address.IsValid())
+                throw new ArgumentException("Endereço inválido!");
+
+            Addresses.Add(address);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Test.Entities
 {
-    internal class PersonTest
+    internal class UserTest
 {
 }
 }
